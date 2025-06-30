@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizli Link</title>
+    <title>Özel Link</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,26 +15,53 @@
             margin-top: 10px;
             font-size: 16px;
         }
+        #gizliLink {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-<h2>Özel Soru</h2>
-<p>Soru: Benim en sevdiğim renk nedir?</p>
+<h2>Özel Sorular</h2>
+<div id="sorular">
+    <p id="soruMetni">Soru burada gözükecek</p>
+    <input type="text" id="cevap" placeholder="Cevabınızı yazın...">
+    <br>
+    <button onclick="kontrolEt()">Kontrol Et</button>
+</div>
 
-<input type="text" id="cevap" placeholder="Cevabınızı yazın...">
-<br>
-<button onclick="kontrolEt()">Giriş Yap</button>
+<div id="gizliLink">
+    <p>Tebrikler, tüm soruları doğru cevapladınız!</p>
+    <a href="https://seninozellinkin.com" target="_blank">Özel Link'e Git</a>
+</div>
 
 <script>
-    function kontrolEt() {
-        var cevap = document.getElementById('cevap').value.toLowerCase();
-        var dogruCevap = "mavi"; // Buraya istediğin cevabı gir.
+    var sorular = [
+        { soru: "Ben kaç kardeşim?", cevap: "4" },
+        { soru: "Doğduğum şehir nedir?", cevap: "Baku" },
+        { soru: "Favori rengim nedir?", cevap: "kahverengi" },
+        { soru: "Hangi takımı tutuyorum?", cevap: "tutmuyorsun" },
+        { soru: "Hangi yılda doğdum?", cevap: "2005" }
+    ];
 
-        if (cevap === dogruCevap) {
-            window.location.href = "https://linktr.ee/seninhesaplarin"; // Hesaplarının olduğu link
+    var mevcutSoru = 0;
+
+    document.getElementById('soruMetni').innerText = sorular[mevcutSoru].soru;
+
+    function kontrolEt() {
+        var kullaniciCevap = document.getElementById('cevap').value.toLowerCase();
+        if (kullaniciCevap === sorular[mevcutSoru].cevap) {
+            mevcutSoru++;
+            if (mevcutSoru < sorular.length) {
+                document.getElementById('soruMetni').innerText = sorular[mevcutSoru].soru;
+                document.getElementById('cevap').value = '';
+            } else {
+                document.getElementById('sorular').style.display = 'none';
+                document.getElementById('gizliLink').style.display = 'block';
+            }
         } else {
-            alert("Yanlış cevap, lütfen tekrar dene.");
+            alert("Yanlış cevap, lütfen tekrar deneyin.");
         }
     }
 </script>
