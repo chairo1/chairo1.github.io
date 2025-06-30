@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizli Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Özel Soru</h2>
+<p>Soru: Benim en sevdiğim renk nedir?</p>
+
+<input type="text" id="cevap" placeholder="Cevabınızı yazın...">
+<br>
+<button onclick="kontrolEt()">Giriş Yap</button>
+
+<script>
+    function kontrolEt() {
+        var cevap = document.getElementById('cevap').value.toLowerCase();
+        var dogruCevap = "mavi"; // Buraya istediğin cevabı gir.
+
+        if (cevap === dogruCevap) {
+            window.location.href = "https://linktr.ee/seninhesaplarin"; // Hesaplarının olduğu link
+        } else {
+            alert("Yanlış cevap, lütfen tekrar dene.");
+        }
+    }
+</script>
+
+</body>
+</html>
