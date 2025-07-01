@@ -33,7 +33,7 @@
 
 <div id="gizliLink">
     <p>Tebrikler, tüm soruları doğru cevapladınız!</p>
-    <a href="open.spotify.com/user/31qr2vlnbfpep5kn5olmz4o2veve.com" target="_blank">Özel Link'e Git</a>
+    <a href="https://open.spotify.com/user/31qr2vlnbfpep5kn5olmz4o2veve" target="_blank">Spotify Linkine Git</a>
 </div>
 
 <script>
@@ -50,7 +50,7 @@
     document.getElementById('soruMetni').innerText = sorular[mevcutSoru].soru;
 
     function kontrolEt() {
-        var kullaniciCevap = document.getElementById('cevap').value.toLowerCase();
+        var kullaniciCevap = document.getElementById('cevap').value.trim().toLowerCase();
         if (kullaniciCevap === sorular[mevcutSoru].cevap) {
             mevcutSoru++;
             if (mevcutSoru < sorular.length) {
